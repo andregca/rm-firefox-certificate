@@ -1,5 +1,9 @@
 # Certificate Removal Script
 
+Sometimes you use RFC1918 private ip addresses for internal applications, with self signed certificates, and, there is a chance of having different applications, running on different VPNs, that choose to use the same CN on self-signed certificates.
+
+In that case, there is a need to remove the existing entries on cert db and cert_override.txt file, to let firefox work with these sites. If you don't do that, you will receive the error "sec_error_reused_issuer_and_serial" and won't be able to access the site.
+
 This script is designed to remove certificate entries from the `cert9.db` file and `cert_override.txt` file used by Mozilla Firefox. It allows you to specify an IP address and removes any certificate entries with a matching Common Name (CN) from the `cert9.db` file. It also removes all occurrences of the IP address from the `cert_override.txt` file.
 
 ## Prerequisites
